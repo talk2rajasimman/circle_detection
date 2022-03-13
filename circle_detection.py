@@ -53,7 +53,6 @@ if circles is not None:
                             1, (255, 0, 0), 2, cv2.LINE_AA)
     
     cv2.imshow("circle_detection",output)
-    cv2.imwrite("4.jpg",output)
     cv2.waitKey()    
 else:
     print("Circle Not Found")
