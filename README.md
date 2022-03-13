@@ -8,13 +8,12 @@
 
 `python circle_detection.py --image sample_images/1.jpg`
 
-![A test image](sample_images/1.jpg) ![A test image](sample_output/1.jpg)
+![A test image](sample_images/4.jpg) ![A test image](sample_output/4.jpg)
 
 
 
 
-### Here (50,50) is the pixel coordinate we need to check inside or outside the circular
-region,If a circular region is present
+### We need to check the pixel coordinate (50,50) inside or outside the circular region,If a circular region is present or not.
 
 
 `python circle_detection.py --image sample_images/4.jpg --point 50,50`
