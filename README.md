@@ -8,6 +8,7 @@
 
 `python circle_detection.py --image sample_images/1.jpg`
 
+![A test image](sample_images/1.jpg) ![A test image](sample_output/1.jpg)
 
 
 
