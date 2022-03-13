@@ -3,7 +3,7 @@ import cv2
 
 import argparse
 import math
-from matplotlib.patches import Circle
+
 
 def tuple_type(strings):
     strings = strings.replace("(", "").replace(")", "")
