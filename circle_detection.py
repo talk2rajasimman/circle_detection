@@ -3,6 +3,7 @@ import cv2
 
 import argparse
 import math
+from matplotlib.patches import Circle
 
 def tuple_type(strings):
     strings = strings.replace("(", "").replace(")", "")
@@ -31,28 +32,27 @@ if circles is not None:
     # If there are some detections, convert radius and x,y(center) coordinates to integer
     circles = np.round(circles[0, :]).astype("int")
     radius = 0
+    
+    
     for (x, y, r) in circles:        
         radius = r
-        cv2.circle(output, (x, y), r, (0,255,0), 3)
-        cv2.rectangle(output, (x - 2, y - 2), (x + 2, y + 2), (0,255,0), -1)
-    
-    if args["point"] and len(args["point"]) == 2:
+        cv2.circle(output, (x, y), r, (0,255,0), 3) 
         
-        points = args["point"]
-        x = points[0]
+        if args["point"] and len(args["point"]) == 2:
+            center=(x,y)
+            coordinate=args["point"]
+            
+            cv2.circle(output, args["point"], radius=0, color=(0, 0, 255), thickness=10)
+
+            if (coordinate[0]-center[0])**2 + (coordinate[1]-center[1])**2 < radius**2:
+                cv2.putText(output, 'Inside', (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 
+                                1, (255, 0, 0), 2, cv2.LINE_AA)
+            else:   
+                cv2.putText(output, 'Outside', (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 
+                                1, (255, 0, 0), 2, cv2.LINE_AA)
         
-        y = points[1]        
-        polarradius = math.sqrt(x * x + y * y)
-        
-        if polarradius < radius:
-        
-            cv2.putText(output, 'Inside', (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 
-                            1, (255, 0, 0), 2, cv2.LINE_AA)
-        else:
-            cv2.putText(output, 'Outside', (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 
-                            1, (255, 0, 0), 2, cv2.LINE_AA)
     
     cv2.imshow("circle_detection",output)
     cv2.waitKey()    
 else:
-    print("Circle Not Found")
+    print("circle not detected")
