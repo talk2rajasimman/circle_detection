@@ -6,7 +6,7 @@
 
 ### Run code
 
-`python circle_detection.py --image sample_images/1.jpg`
+`python circle_detection.py --image sample_images/4.jpg`
 
 ![A test image](sample_images/4.jpg) ![A test image](sample_output/4.jpg)
 
