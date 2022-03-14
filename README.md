@@ -10,7 +10,7 @@
 
 ### Check the coordinate inside or outside
 
-![A test image](sample_images/4.jpg) ![A test image](4.jpg)
+![A test image](sample_images/2.jpg) ![A test image](2.jpg)
 
 
 ## How to use
